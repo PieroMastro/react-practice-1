@@ -10,12 +10,12 @@ import rigoImage from "../../img/rigo-baby.jpg";
 const Home = () => {
 	return (
 		<div className="text-center m-5">
-			<div className="m-5">
+			{/* <div className="m-5">
 				<Counter />
 			</div>
 			<div className="m-5">
 				<CardGenerator />
-			</div>
+			</div> */}
 			<div className="m-5">
 				<TrafficLight />
 			</div>

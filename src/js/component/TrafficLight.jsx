@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './TrafficLight.css';
 
 function TrafficLight() {
     const [selectedLight, setSelectedLight] = useState(null);
