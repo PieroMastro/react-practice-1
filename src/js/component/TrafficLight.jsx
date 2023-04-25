@@ -37,7 +37,11 @@ function TrafficLight() {
                 className={`light red ${selectedLight === 'red' ? 'active' : ''}`}
                 onClick={() => handleLightClick('red')}
             ></div>
-            <button onClick={handleCycleClick}>Cycle Color</button>
+            <button
+                className='btn btn-primary'
+                onClick={handleCycleClick}>
+                Cycle Color
+            </button>
         </div>
     );
 }
