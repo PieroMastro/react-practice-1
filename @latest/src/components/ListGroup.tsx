@@ -1,9 +1,13 @@
 import { Fragment, useState } from "react";
 
-const ListGroup = () => {
-  let items = ["New York", "San Francisco", "Tokio", "London", "Paris"];
-  //   items = [];
+interface Props {
+  items: string[];
+  heading: string;
+  onSelectItem: (item: string) => void;
+}
+// Props object desctrudtured {items, heading} =
 
+const ListGroup = ({ items, heading, onSelectItem }: Props) => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   // const handleCLick = (event: MouseEvent) => {
@@ -12,7 +16,7 @@ const ListGroup = () => {
 
   return (
     <Fragment>
-      <h1>List</h1>
+      <h1>{heading}</h1>
       {items.length === 0 && <p>No items found</p>}
       <ul className="list-group">
         {items.map((item, index) => (
@@ -25,6 +29,7 @@ const ListGroup = () => {
             key={item}
             onClick={() => {
               setSelectedIndex(index);
+              onSelectItem(item);
             }}
           >
             {item}
