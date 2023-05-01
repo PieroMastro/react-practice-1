@@ -1,5 +1,5 @@
 import { Fragment, useState } from "react";
-import ListGroup from "./ListGroup.css";
+import "./ListGroup.css";
 
 interface Props {
   items: string[];
