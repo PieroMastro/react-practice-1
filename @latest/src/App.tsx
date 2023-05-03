@@ -3,7 +3,7 @@ import ListGroup from "./components/ListGroup";
 import { useState } from "react";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
-import Like from "./components/LikeButton/Like";
+import Like from "./components/Like/Like";
 
 // function App() {
 //   let items = ["New York", "San Francisco", "Tokio", "London", "Paris"];
