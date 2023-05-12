@@ -1,8 +1,9 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 // import produce from "immer";
-import NavBar from "./NavBar";
-import Cart from "./Cart";
-import ExpandableText from "./ExpandableText";
+// import NavBar from "./NavBar";
+// import Cart from "./Cart";
+// import ExpandableText from "./ExpandableText";
+import ProductList from "./components/ProductList";
 
 // import ListGroup from "./components/ListGroup";
 // import Alert from "./components/Alert";
@@ -92,32 +93,54 @@ import ExpandableText from "./ExpandableText";
 //   );
 // };
 
+// const App = () => {
+//   const [cartItems, setCartItems] = useState(["Product1", "Product2"]);
+
+//   return (
+//     <Fragment>
+//       <div>
+//         <NavBar cartItemsCount={cartItems.length} />
+//         <Cart cartItems={cartItems} onClear={() => setCartItems([])} />
+//       </div>
+//       <div>
+//         <ExpandableText>
+//           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
+//           consectetur quis vero expedita adipisci recusandae sunt facere
+//           provident nesciunt totam itaque atque, iure laboriosam pariatur, vel,
+//           hic laborum quae odio eligendi accusamus dolore? Quis omnis excepturi
+//           autem a delectus repellendus, consectetur dolorem. Minima, eius.
+//           Nostrum sapiente consequuntur facilis ad quasi! Saepe voluptates
+//           aliquid dicta consectetur possimus molestiae tempore ad inventore
+//           illum illo est, delectus iure fugit eum error et sit nulla! Suscipit
+//           corrupti dolorum illum ab fugiat, eligendi delectus cum illo numquam?
+//           Quaerat ducimus recusandae adipisci similique aspernatur. Ducimus
+//           suscipit voluptatum quasi atque iure tempora sapiente deleniti magnam
+//           vitae quidem.
+//         </ExpandableText>
+//       </div>
+//     </Fragment>
+//   );
+// };
+
+// export default App;
+
 const App = () => {
-  const [cartItems, setCartItems] = useState(["Product1", "Product2"]);
+  const [category, setCategory] = useState("");
 
   return (
-    <Fragment>
-      <div>
-        <NavBar cartItemsCount={cartItems.length} />
-        <Cart cartItems={cartItems} onClear={() => setCartItems([])} />
-      </div>
-      <div>
-        <ExpandableText>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
-          consectetur quis vero expedita adipisci recusandae sunt facere
-          provident nesciunt totam itaque atque, iure laboriosam pariatur, vel,
-          hic laborum quae odio eligendi accusamus dolore? Quis omnis excepturi
-          autem a delectus repellendus, consectetur dolorem. Minima, eius.
-          Nostrum sapiente consequuntur facilis ad quasi! Saepe voluptates
-          aliquid dicta consectetur possimus molestiae tempore ad inventore
-          illum illo est, delectus iure fugit eum error et sit nulla! Suscipit
-          corrupti dolorum illum ab fugiat, eligendi delectus cum illo numquam?
-          Quaerat ducimus recusandae adipisci similique aspernatur. Ducimus
-          suscipit voluptatum quasi atque iure tempora sapiente deleniti magnam
-          vitae quidem.
-        </ExpandableText>
-      </div>
-    </Fragment>
+    <div>
+      <select
+        name=""
+        id=""
+        className="form-select my-5"
+        onChange={(event) => setCategory(event.target.value)}
+      >
+        <option value=""></option>
+        <option value="Clothing">Clothing</option>
+        <option value="Household">Household</option>
+      </select>
+      <ProductList category={category} />
+    </div>
   );
 };
 
