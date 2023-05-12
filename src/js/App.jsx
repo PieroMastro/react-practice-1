@@ -5,13 +5,19 @@ const App = () => {
 
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+
+    const controller = new AbortController();
+
+    setLoading(true);
+
     const getUsersData = async () => {
 
       try {
         const response = await fetch(
-          "https://jsonplaceholder.typicode.com/users"
+          "https://jsonplaceholder.typicode.com/users", { signal: controller.signal }
         );
 
         if (!response.ok) {
@@ -21,18 +27,23 @@ const App = () => {
         const data = await response.json();
 
         setUsers(data);
+        setLoading(false);
+      }
+      catch (error) {
+        setError(error.message);
+        setLoading(false);
 
-      } catch (error) {
-        setError(error.message)
-      };
+      }
     };
 
     getUsersData();
+    return () => controller.abort();
   }, []);
 
   return (
     <>
       {error && <p className="text-danger">Error: {error}</p>}
+      {loading === true && <div className="spinner-border"></div>}
       <ul>
         {users.map((user) => (
           <li key={user.id}>{user.name}</li>
