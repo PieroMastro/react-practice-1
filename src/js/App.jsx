@@ -8,9 +8,10 @@ const App = () => {
 
   useEffect(() => {
     const getUsersData = async () => {
+
       try {
         const response = await fetch(
-          "https://jsonplaceholder.typicode.com/ufsers"
+          "https://jsonplaceholder.typicode.com/users"
         );
 
         if (!response.ok) {
@@ -20,6 +21,7 @@ const App = () => {
         const data = await response.json();
 
         setUsers(data);
+
       } catch (error) {
         setError(error.message)
       };
