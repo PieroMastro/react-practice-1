@@ -7,7 +7,7 @@ import "../styles/index.css";
 import '../styles/TrafficLight.css';
 
 //import your own components
-import Home from "./component/home.jsx";
+// import Home from "./component/home.jsx";
 import App from "./App.jsx";
 
 //render your react application
